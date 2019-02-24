@@ -4,7 +4,6 @@
     <div class="mainBox">aaa</div>
     <div class="mainBox">bbb</div>
     <div class="mainBox">ccc</div>
- 
   </div>
 </template>
 

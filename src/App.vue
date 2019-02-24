@@ -8,7 +8,7 @@
       <img src="./assets/batu.png" id="Menufalse" @click="show = !show" />
       <div id="menuMain2">
       <p @click="toHome">Home</p>
-      <p @click="toAbout">about</p>
+      <p @click="toAbout">abouts</p>
     </div>
     </div>
   </transition>
