@@ -1,12 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+       <div id="demo">
+  <img src="./assets/menu.png" id="Menu" v-if="!show" @click="show = !show" />
+  
+  <transition name="fade">
+    <div id="menuMain" v-if="show">
+      <img src="./assets/batu.png" id="Menufalse" @click="show = !show" />
+      <div id="menuMain2">
+      <p @click="toHome">Home</p>
+      <p @click="toAbout">about</p>
     </div>
-    <router-view/>
+    </div>
+  </transition>
+</div>
+<router-view/>    
   </div>
 </template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+import router from './router'
+
+
+export default {
+  name: 'app',
+  components: {
+    HelloWorld
+  },
+  data(){
+    return {
+      show: true
+    }
+  },
+  methods: {
+    toHome(){
+      router.push({ path: '/' })
+      this.show = false
+    },
+    toAbout(){
+      router.push({ path: '/about' })
+      this.show = false
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -15,17 +52,48 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
+  margin-top: 60px;
   font-weight: bold;
-  color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
 }
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+#Menu {
+  z-index: 10;
+  position: fixed;
+  top:20px;
+  left:20px;
+  width: 20px;
+  height:20px;
+}
+
+#Menufalse{
+  z-index: 10;
+  position: fixed;
+  top:20px;
+  left:20px;
+  width: 20px;
+  height:20px;
+
+}
+#menuMain{
+  z-index: 5;
+  background: #696969;
+  color: aliceblue;
+  position : fixed;
+  top : 0;
+  left : 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#menuMain2{
+  margin-top: 50px;
+}
+
 </style>
