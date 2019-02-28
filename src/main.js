@@ -1,4 +1,12 @@
 import Vue from 'vue'
+import * as VueGoogleMaps from 'vue2-google-maps'
+Vue.use(VueGoogleMaps, {
+load: {
+key: 'AIzaSyCdJ5w8Wa5z1u_cA5dQVn9yg5rtTHR5Fbk',
+libraries: 'places'
+}
+})
+
 import App from './App.vue'
 import router from './router'
 import './registerServiceWorker'
@@ -17,6 +25,7 @@ var config = {
   messagingSenderId: "800689052756"
 };
 firebase.initializeApp(config);
+
 
 new Vue({
   router,
